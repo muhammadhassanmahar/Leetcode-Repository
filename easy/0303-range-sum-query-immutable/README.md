@@ -45,45 +45,29 @@ Constraints:
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 12.2 MB  
-**Submitted:** 2026-08-19T04:53:13.383Z  
+**Runtime:** 4 ms (beats 75.00%)  
+**Memory:** 16.1 MB (beats 37.17%)  
+**Submitted:** 2026-08-19T04:53:24.214Z  
 
 ```py
-import heapq
+class NumArray(object):
 
-class MedianFinder(object):
+    def __init__(self, nums):
+        """
+        :type nums: List[int]
+        """
+        self.prefix = [0]
 
-    def __init__(self):
-        self.small = []  # max heap (negative values)
-        self.large = []  # min heap
+        for num in nums:
+            self.prefix.append(self.prefix[-1] + num)
 
-    def addNum(self, num):
-        # Pehle small mein add karo
-        heapq.heappush(self.small, -num)
-
-        # Ensure small ka maximum <= large ka minimum
-        if self.small and self.large and (-self.small[0] > self.large[0]):
-            val = -heapq.heappop(self.small)
-            heapq.heappush(self.large, val)
-
-        # Balance heaps
-        if len(self.small) > len(self.large) + 1:
-            val = -heapq.heappop(self.small)
-            heapq.heappush(self.large, val)
-
-        elif len(self.large) > len(self.small) + 1:
-            val = heapq.heappop(self.large)
-            heapq.heappush(self.small, -val)
-
-    def findMedian(self):
-        if len(self.small) > len(self.large):
-            return float(-self.small[0])
-
-        elif len(self.large) > len(self.small):
-            return float(self.large[0])
-
-        return (-self.small[0] + self.large[0]) / 2.0
+    def sumRange(self, left, right):
+        """
+        :type left: int
+        :type right: int
+        :rtype: int
+        """
+        return self.prefix[right + 1] - self.prefix[left]
 ```
 
 ---
