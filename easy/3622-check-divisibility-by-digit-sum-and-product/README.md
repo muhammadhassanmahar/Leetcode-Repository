@@ -51,19 +51,27 @@ Constraints:
 ## Solution
 
 **Language:** dart  
-**Runtime:** 0 ms  
-**Memory:** 146.4 MB  
-**Submitted:** 2026-08-22T05:22:21.547Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 148.1 MB (beats 62.50%)  
+**Submitted:** 2026-08-22T05:22:43.919Z  
 
 ```dart
-class Solution {
-  bool checkDivisibility(int n) {
-    int temp = n;
-    int sum = 0;
-    int product = 1;
+class Solution {
+  bool checkDivisibility(int n) {
+    int temp = n;
+    int sum = 0;
+    int product = 1;
 
-    while (temp > 0) {
+    while (temp > 0) {
+      int digit = temp % 10;
+      sum += digit;
+      product *= digit;
+      temp ~/= 10;
+    }
 
+    return n % (sum + product) == 0;
+  }
+}
 ```
 
 ---
