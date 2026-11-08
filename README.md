@@ -6,21 +6,21 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Solved | 76 |
+| Total Solved | 77 |
 | Easy | 20 |
-| Medium | 40 |
+| Medium | 41 |
 | Hard | 16 |
-| Current Streak | 1 days |
-| Last Synced | 07/11/2026 |
+| Current Streak | 2 days |
+| Last Synced | 08/11/2026 |
 
 ## Languages
 
 | Language | Solutions |
 |----------|-----------|
 | dart | 50 |
-| Python | 24 |
+| Python | 25 |
 | C# | 1 |
 | C++ | 1 |
 
 ---
-*Last updated: 2026-11-07T05:49:25.982Z*
+*Last updated: 2026-11-08T07:16:37.755Z*
